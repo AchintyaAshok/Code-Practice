@@ -24,7 +24,6 @@ void replace_spaces(char*& str, size_t length){
 
 	while (newStringIndex < length){
 		char toMove = *(str + (oldStringIndex * sizeof(char)));
-		// cout << "To Move -> '" << toMove << "'" << endl; 
 		// charsAdded also keeps track of the index in our second string to which we're adding the character
 		if(toMove == ' '){
 			newString[newStringIndex] = '%';
