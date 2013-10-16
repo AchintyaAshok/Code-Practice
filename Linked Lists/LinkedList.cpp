@@ -14,7 +14,7 @@ bool LinkedList::empty() const{
 	return size == 0;
 }
 
-void LinkedList::push(int data){
+void LinkedList::push_back(int data){
 	if(!head){
 		head = tail = new Node(data);
 	}
@@ -24,6 +24,17 @@ void LinkedList::push(int data){
 	}
 	size++;
 }	
+
+void LinkedList::push_front(int data){
+	if(!head){
+		head = tail = new Node(data);
+	}
+	else{
+		tail->next = new Node(data);
+		tail = tail->next;
+	}
+	size++;
+}
 
 void LinkedList::pop_back(){
 	Node* newHead = head->next;

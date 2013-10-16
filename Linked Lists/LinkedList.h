@@ -21,8 +21,10 @@ public:
 	int length() const;
 	/* returns whether or not the linked list is empty */
 	bool empty() const;
-	/* push a Node into the linked list, it will add it to the end of the list */
-	void push(int data);
+	/* push a value into the back of the linked list */
+	void push_back(int data);
+	/* push a value into the front of the linked list */
+	void push_front(int data);
 	/* pop the front most(the head) node from the linked list */
 	void pop_back();
 	/* pop_front removes nodes in the same order that they were inserted, it removes a node from the tail of the linked list */
