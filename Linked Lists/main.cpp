@@ -24,7 +24,7 @@ int main(){
 	add_linkedlist_numbers(leftAddend, rightAddend, sum);
 	// now let's check if we got the correct sum:
 	while(!sum.empty()){
-		cout << sum.front();
+		cout << sum.front()->data;
 		sum.pop_front();
 	}
 	cout << endl;

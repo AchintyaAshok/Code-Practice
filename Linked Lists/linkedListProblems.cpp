@@ -60,40 +60,27 @@ void add_linkedlist_numbers(LinkedList& leftAddend, LinkedList& rightAddend, Lin
 		both sides of the list. Let's assume this can only be done from the back where the back holds the newly 
 		inserted elements.
 
-		We can make this work by first removing all the elements from each of the addends and pushing each value into 
-		a stack. Then, we start popping the left stack and the right stack and computing its sum.
-
 		When the sum of two of the numbers is greater than 10, we have a carry that we need to add to the next tuple
 		of numbers.
 	*/
-	std::stack<int> leftStack;
-	std::stack<int> rightStack;
+
+	int carry = 0;
 	while(!leftAddend.empty() || !rightAddend.empty()){
-		// Amortized O(max(N, M)) where N is num_elements in left & M is num_elements in right
+		int leftValue, rightValue = 0;
 		if(!leftAddend.empty()){
-			leftStack.push(leftAddend.back()->data);
+			leftValue = leftAddend.back()->data;
 			leftAddend.pop_back();
 		}
 		if(!rightAddend.empty()){
-			rightStack.push(rightAddend.back()->data);
+			rightValue = rightAddend.back()->data;
 			rightAddend.pop_back();
 		}
-	}
-
-	int carry = 0;
-	while(!leftStack.empty() || !rightStack.empty()){
-		int leftValue, rightValue = 0; // these are the values we'll remove from the stacks.
-		if(!leftStack.empty()){
-			leftValue = leftStack.top();
-			leftStack.pop();
-		}
-		if(!rightStack.empty()){
-			rightValue = rightStack.top();
-			rightStack.pop();
-		}
 		int sum = carry + leftValue + rightValue;
+		printf("Left: %d, Right: %d, Carry: %d\n", leftValue, rightValue, carry);
 		carry = sum/10; 			// this will give us the 10's digit or the carry for the next set of vals
-		sumList.push_back(sum%10); 	// add the digit value to our sum linked list
+		sum = sum%10;
+		printf("Inserting sum: %d\n", sum);
+		sumList.push_front(sum); 	// add the digit value to our sum linked list
 	}
 	// the total time complexity of this function will be 2 * O(max(N, M)) which is amortized to O(max(N, M))
 }
