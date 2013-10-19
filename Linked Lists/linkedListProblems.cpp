@@ -95,7 +95,6 @@ void add_linkedlist_numbers(LinkedList& leftAddend, LinkedList& rightAddend, Lin
 		carry = sum/10; 			// this will give us the 10's digit or the carry for the next set of vals
 		sumList.push_back(sum%10); 	// add the digit value to our sum linked list
 	}
-
 	// the total time complexity of this function will be 2 * O(max(N, M)) which is amortized to O(max(N, M))
 }
 

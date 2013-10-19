@@ -8,23 +8,48 @@
 using namespace std;
 
 
+
 int main(){
-	// TESTING OUT PROBLEM 1 -- REMOVAL OF DUPLICATES
-	LinkedList myList;
-	for(int i=0; i<5; i++){
-		myList.push_back(i);
-		myList.push_back(i);
+	// TESTING OUT PROBLEM 3 -- ADDING NUMBERS REP. BY LLs
+	LinkedList leftAddend;
+	LinkedList rightAddend;
+	LinkedList sum;
+	leftAddend.push_back(6);
+	leftAddend.push_back(1);
+	leftAddend.push_back(7); // left now is 7 -> 1 -> 6 or in actual form, 617
+	rightAddend.push_back(2);
+	rightAddend.push_back(9);
+	rightAddend.push_back(5); // right now is 5 -> 9 -> 2 or in actual form, 295
+	// now let's compute the sum:
+	add_linkedlist_numbers(leftAddend, rightAddend, sum);
+	// now let's check if we got the correct sum:
+	while(!sum.empty()){
+		cout << sum.front();
+		sum.pop_front();
 	}
-	printf("Our Current Linked List has %d elements. Now we shall remove duplicates:\n", myList.length());
-	remove_duplicates(myList);
-	printf("Let's iterate through all the elements in our linked list ->\n");
-	while(!myList.empty()){
-		printf("%d ", myList.back()->data);
-		myList.pop_back();
-	}
-	cout << endl << endl;
+	cout << endl;
+
 	return 0;
 }
+
+
+// int main(){
+// 	// TESTING OUT PROBLEM 1 -- REMOVAL OF DUPLICATES
+// 	LinkedList myList;
+// 	for(int i=0; i<5; i++){
+// 		myList.push_back(i);
+// 		myList.push_back(i);
+// 	}
+// 	printf("Our Current Linked List has %d elements. Now we shall remove duplicates:\n", myList.length());
+// 	remove_duplicates(myList);
+// 	printf("Let's iterate through all the elements in our linked list ->\n");
+// 	while(!myList.empty()){
+// 		printf("%d ", myList.back()->data);
+// 		myList.pop_back();
+// 	}
+// 	cout << endl << endl;
+// 	return 0;
+// }
 
 // int main(){
 // 	// TESTING OUT OUR LINKED LIST
